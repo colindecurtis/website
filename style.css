@@ -5,20 +5,23 @@
   box-sizing: border-box;
 }
 
-/* Base Styling */
+/* Body and Containers */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
 }
 
 .container {
   width: 90%;
   max-width: 1100px;
-  margin: auto;
-  padding: 1em 0;
+  margin: 0 auto;
 }
 
 /* Header */
@@ -27,123 +30,115 @@ header {
   color: white;
   padding: 1em 0;
 }
-
-.header-content {
+header h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+nav ul {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1em;
   flex-wrap: wrap;
 }
-
-nav ul.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5em;
-  padding: 0;
-}
-
-nav ul.nav-links li a {
-  text-decoration: none;
+nav a {
   color: white;
+  text-decoration: none;
   font-weight: bold;
 }
-
 .nav-controls {
-  margin-left: auto;
-  display: flex;
-  gap: 0.5em;
-}
-
-/* Hero */
-#hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2em;
-  margin-top: 2em;
+  gap: 0.5em;
+}
+nav #auth-link {
+  margin-left: auto;
 }
 
+/* Hero Section */
+#hero {
+  background-color: #e0e0ff;
+  padding: 2em;
+  text-align: center;
+  margin-top: 1em;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
 .hero-content img {
   max-width: 100%;
-  border-radius: 10px;
-}
-
-.hero-content div {
-  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
 }
 
 /* Buttons */
 .btn,
 button {
-  display: inline-block;
-  padding: 0.6em 1.2em;
   background-color: #1e1e2f;
   color: white;
-  text-decoration: none;
+  padding: 0.6em 1.2em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 1em;
 }
-
 button:hover,
 .btn:hover {
   background-color: #333356;
 }
 
-/* Products Grid */
+/* Sections */
+section {
+  padding: 2em 0;
+}
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2em;
-  margin-top: 2em;
+  gap: 1.5em;
 }
-
 .product-card {
   background: white;
   border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   padding: 1em;
   text-align: center;
   border-radius: 10px;
-  transition: transform 0.2s;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.05);
 }
-
-.product-card:hover {
-  transform: scale(1.03);
-}
-
 .product-card img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
   margin-bottom: 1em;
 }
-
-.price {
+.product-card .price {
   font-weight: bold;
   margin: 0.5em 0;
 }
 
-/* Contact Form */
-form {
+/* Cart */
+#cart-items {
+  margin-top: 2em;
+}
+.cart-item {
+  margin: 0.5em 0;
+}
+
+/* Auth Forms */
+.auth-form {
+  max-width: 400px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
-
-form input,
-form textarea {
-  padding: 0.8em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: inherit;
+.auth-form input {
+  padding: 0.75em;
   font-size: 1em;
 }
-
-/* Cart Items */
-.cart-item {
-  margin-bottom: 1em;
+.auth-form button {
+  font-size: 1em;
 }
 
 /* Footer */
@@ -151,28 +146,35 @@ footer {
   background-color: #1e1e2f;
   color: white;
   text-align: center;
-  padding: 1.5em 0;
+  padding: 1em 0;
   margin-top: 2em;
 }
 
-/* Dark Mode */
-body.dark {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
+/* Dark Mode Specific */
 body.dark header,
 body.dark footer {
-  background-color: #000;
+  background-color: #111;
 }
-
 body.dark .product-card {
-  background-color: #222;
-  color: #fff;
+  background-color: #2a2a2a;
   border-color: #444;
 }
-
 body.dark .btn,
 body.dark button {
+  background-color: #444;
+}
+body.dark input,
+body.dark select {
   background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
