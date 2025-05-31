@@ -18,6 +18,7 @@
           <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
+          <li id="auth-link"></li>
         </ul>
         <div class="nav-controls">
           <button id="darkModeToggle">🌓</button>
@@ -27,19 +28,49 @@
   </header>
 
   <main class="container">
-    <section id="contact">
-      <h2>Send Us a Message</h2>
-      <form id="contact-form" action="https://formspree.io/f/mnqkvwja" method="POST">
+    <section>
+      <h2>Get in Touch</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
+    </section>
+
+    <section>
+      <h3>Follow Us</h3>
+      <p>Email: contact@colinshop.com</p>
+      <p>Instagram: @colinshop</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Colin's Shop</p>
   </footer>
+
+  <script>
+    const authLink = document.getElementById('auth-link');
+    const user = localStorage.getItem('user');
+
+    if (authLink) {
+      if (user) {
+        authLink.innerHTML = `
+          <span style="color:white;">Welcome, ${user}</span>
+          <button id="logoutBtn" style="margin-left: 0.5em;">Logout</button>
+        `;
+      } else {
+        authLink.innerHTML = '<a href="login.html">Sign In / Sign Up</a>';
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'logoutBtn') {
+          localStorage.removeItem('user');
+          location.reload();
+        }
+      });
+    }
+  </script>
+  <script async src="https://embed.tawk.to/your-tawk-id/1hxyzabc"></script>
 </body>
 </html>
