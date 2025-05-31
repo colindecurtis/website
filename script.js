@@ -1,3 +1,4 @@
+// Dark Mode Toggle
 const darkToggle = document.getElementById('darkModeToggle');
 if (darkToggle) {
   darkToggle.addEventListener('click', () => {
@@ -9,6 +10,7 @@ if (localStorage.getItem('darkMode') === 'true') {
   document.body.classList.add('dark');
 }
 
+// Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
@@ -16,6 +18,7 @@ if (menuToggle) {
   });
 }
 
+// Cart Functions
 const CART_KEY = 'shoppingCart';
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -52,7 +55,7 @@ function renderCart() {
     el.className = 'cart-item';
     el.innerHTML = `<strong>${item.name}</strong> x ${item.quantity}`;
     cartList.appendChild(el);
-    total += item.quantity * 20;
+    total += item.quantity * 20; // Replace with actual pricing logic
   });
   totalEl.textContent = total.toFixed(2);
 }
@@ -61,34 +64,25 @@ function clearCart() {
   updateCartCount();
   renderCart();
 }
+
+// On Page Load
 if (window.location.pathname.includes('cart.html')) {
   document.getElementById('clear-cart').addEventListener('click', clearCart);
   renderCart();
 }
+
 if (window.location.pathname.includes('products.html')) {
   fetch('products.json')
     .then(res => res.json())
     .then(products => {
-      const grid = document.querySelector('.products-grid');
-      if (!grid) return;
-      products.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${p.image}" alt="${p.name}">
-          <h3>${p.name}</h3>
-          <p>${p.description}</p>
-          <p class="price">$${p.price.toFixed(2)}</p>
-          <button onclick="addToCart('${p.name}')">Add to Cart</button>
-        `;
-        grid.appendChild(card);
-      });
+      allProducts = products;
+      renderFilteredProducts(products);
+      document.getElementById('product-search').addEventListener('input', filterProducts);
+      document.getElementById('category-filter').addEventListener('change', filterProducts);
     });
 }
-updateCartCount();
-// After loading products
-let allProducts = [];
 
+let allProducts = [];
 function renderFilteredProducts(products) {
   const grid = document.querySelector('.products-grid');
   grid.innerHTML = '';
@@ -105,7 +99,6 @@ function renderFilteredProducts(products) {
     grid.appendChild(card);
   });
 }
-
 function filterProducts() {
   const search = document.getElementById('product-search').value.toLowerCase();
   const category = document.getElementById('category-filter').value;
@@ -116,13 +109,5 @@ function filterProducts() {
   renderFilteredProducts(filtered);
 }
 
-if (window.location.pathname.includes('products.html')) {
-  fetch('products.json')
-    .then(res => res.json())
-    .then(products => {
-      allProducts = products;
-      renderFilteredProducts(products);
-      document.getElementById('product-search').addEventListener('input', filterProducts);
-      document.getElementById('category-filter').addEventListener('change', filterProducts);
-    });
-}
+// Update cart display count on load
+updateCartCount();
