@@ -4,6 +4,7 @@
     "name": "Wireless Earbuds",
     "description": "Crystal-clear audio, all-day battery.",
     "price": 29.99,
+    "category": "tech",
     "image": "https://via.placeholder.com/200x200?text=Earbuds"
   },
   {
@@ -11,6 +12,7 @@
     "name": "Smart Water Bottle",
     "description": "Tracks hydration, glows to remind you.",
     "price": 49.99,
+    "category": "home",
     "image": "https://via.placeholder.com/200x200?text=Bottle"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Notebook Organizer",
     "description": "Perfect for students and professionals alike.",
     "price": 14.99,
+    "category": "accessories",
     "image": "https://via.placeholder.com/200x200?text=Notebook"
   },
   {
@@ -25,6 +28,7 @@
     "name": "LED Desk Lamp",
     "description": "Adjustable brightness, modern design.",
     "price": 34.99,
+    "category": "tech",
     "image": "https://via.placeholder.com/200x200?text=Lamp"
   }
 ]
