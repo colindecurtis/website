@@ -1,34 +1,44 @@
 [
   {
-    "id": "1",
-    "name": "Wireless Earbuds",
-    "description": "Crystal-clear audio, all-day battery.",
-    "price": 29.99,
-    "category": "tech",
-    "image": "https://via.placeholder.com/200x200?text=Earbuds"
+    "name": "Smart Watch",
+    "description": "A sleek and powerful smart watch with fitness tracking.",
+    "price": 149.99,
+    "image": "https://via.placeholder.com/200x200?text=Smart+Watch",
+    "category": "tech"
   },
   {
-    "id": "2",
-    "name": "Smart Water Bottle",
-    "description": "Tracks hydration, glows to remind you.",
-    "price": 49.99,
-    "category": "home",
-    "image": "https://via.placeholder.com/200x200?text=Bottle"
+    "name": "Bluetooth Speaker",
+    "description": "Portable speaker with deep bass and waterproof design.",
+    "price": 89.99,
+    "image": "https://via.placeholder.com/200x200?text=Speaker",
+    "category": "tech"
   },
   {
-    "id": "3",
-    "name": "Notebook Organizer",
-    "description": "Perfect for students and professionals alike.",
-    "price": 14.99,
-    "category": "accessories",
-    "image": "https://via.placeholder.com/200x200?text=Notebook"
-  },
-  {
-    "id": "4",
     "name": "LED Desk Lamp",
-    "description": "Adjustable brightness, modern design.",
-    "price": 34.99,
-    "category": "tech",
-    "image": "https://via.placeholder.com/200x200?text=Lamp"
+    "description": "Modern LED lamp with adjustable brightness and USB port.",
+    "price": 34.95,
+    "image": "https://via.placeholder.com/200x200?text=Lamp",
+    "category": "home"
+  },
+  {
+    "name": "Wireless Charger",
+    "description": "Fast-charging wireless pad compatible with all Qi devices.",
+    "price": 25.99,
+    "image": "https://via.placeholder.com/200x200?text=Charger",
+    "category": "tech"
+  },
+  {
+    "name": "Reusable Water Bottle",
+    "description": "Insulated stainless steel bottle with 24-hour cold retention.",
+    "price": 19.49,
+    "image": "https://via.placeholder.com/200x200?text=Bottle",
+    "category": "accessories"
+  },
+  {
+    "name": "Laptop Sleeve",
+    "description": "Protective and stylish sleeve for 13-15\" laptops.",
+    "price": 27.99,
+    "image": "https://via.placeholder.com/200x200?text=Sleeve",
+    "category": "accessories"
   }
 ]
