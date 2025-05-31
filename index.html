@@ -43,5 +43,17 @@
   <footer>
     <p>&copy; 2025 Colin's Shop</p>
   </footer>
+<script>
+  const user = localStorage.getItem('user');
+  if (user) {
+    const nav = document.querySelector('nav');
+    const greeting = document.createElement('p');
+    greeting.textContent = 'Welcome, ' + user;
+    greeting.style.color = 'white';
+    greeting.style.marginLeft = '1em';
+    nav.appendChild(greeting);
+  }
+</script>
+
 </body>
 </html>
