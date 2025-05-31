@@ -18,7 +18,11 @@
           <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
+          <li id="auth-link"></li>
         </ul>
+        <div class="nav-controls">
+          <button id="darkModeToggle">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -30,6 +34,9 @@
       <div id="cart-summary">
         <p>Total: $<span id="cart-total">0.00</span></p>
         <button id="clear-cart" class="btn">Clear Cart</button>
+        <form action="https://your-stripe-checkout-url" method="POST">
+          <button type="submit" class="btn">Checkout</button>
+        </form>
       </div>
     </section>
   </main>
@@ -37,5 +44,29 @@
   <footer>
     <p>&copy; 2025 Colin's Shop</p>
   </footer>
+
+  <script>
+    const authLink = document.getElementById('auth-link');
+    const user = localStorage.getItem('user');
+
+    if (authLink) {
+      if (user) {
+        authLink.innerHTML = `
+          <span style="color:white;">Welcome, ${user}</span>
+          <button id="logoutBtn" style="margin-left: 0.5em;">Logout</button>
+        `;
+      } else {
+        authLink.innerHTML = '<a href="login.html">Sign In / Sign Up</a>';
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'logoutBtn') {
+          localStorage.removeItem('user');
+          location.reload();
+        }
+      });
+    }
+  </script>
+  <script async src="https://embed.tawk.to/your-tawk-id/1hxyzabc"></script>
 </body>
 </html>
