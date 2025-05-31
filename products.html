@@ -5,50 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products | Colin's Shop</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="container header-content">
       <h1>Our Products</h1>
       <nav>
-        <ul>
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
         </ul>
+        <div class="nav-controls">
+          <button id="darkModeToggle">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="products-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="Wireless Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <p>Crystal-clear audio, all-day battery.</p>
-        <p class="price">$29.99</p>
-        <button onclick="addToCart('Wireless Earbuds')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="Smart Water Bottle">
-        <h3>Smart Water Bottle</h3>
-        <p>Tracks hydration, glows to remind you.</p>
-        <p class="price">$49.99</p>
-        <button onclick="addToCart('Smart Water Bottle')">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="Notebook Organizer">
-        <h3>Notebook Organizer</h3>
-        <p>Perfect for students and professionals alike.</p>
-        <p class="price">$14.99</p>
-        <button onclick="addToCart('Notebook Organizer')">Add to Cart</button>
-      </div>
+      <!-- Dynamically populated by script.js -->
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Colin's Shop</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
