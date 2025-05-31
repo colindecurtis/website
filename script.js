@@ -5,9 +5,9 @@ if (darkToggle) {
     document.body.classList.toggle('dark');
     localStorage.setItem('darkMode', document.body.classList.contains('dark'));
   });
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark');
-  }
+}
+if (localStorage.getItem('darkMode') === 'true') {
+  document.body.classList.add('dark');
 }
 
 // Mobile Menu Toggle
@@ -45,29 +45,24 @@ function addToCart(productName) {
 function updateCartCount() {
   const cart = getCart();
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartCountEl = document.getElementById('cart-count');
-  if (cartCountEl) cartCountEl.textContent = `(${count})`;
+  document.querySelectorAll('#cart-count').forEach(el => el.textContent = `(${count})`);
 }
 
 function renderCart() {
   const cart = getCart();
   const cartList = document.getElementById('cart-list');
   const totalEl = document.getElementById('cart-total');
-
   if (!cartList || !totalEl) return;
 
   cartList.innerHTML = '';
   let total = 0;
-
   cart.forEach(item => {
     const el = document.createElement('div');
     el.className = 'cart-item';
     el.innerHTML = `<strong>${item.name}</strong> x ${item.quantity}`;
     cartList.appendChild(el);
-    // Fake price handling — you can connect to product data if needed
     total += item.quantity * 20;
   });
-
   totalEl.textContent = total.toFixed(2);
 }
 
@@ -77,13 +72,11 @@ function clearCart() {
   renderCart();
 }
 
-// Hook up on cart page
 if (window.location.pathname.includes('cart.html')) {
   document.getElementById('clear-cart').addEventListener('click', clearCart);
   renderCart();
 }
 
-// Dynamic Product Injection (products.html)
 if (window.location.pathname.includes('products.html')) {
   fetch('products.json')
     .then(res => res.json())
