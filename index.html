@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colin's Shop</title>
+  <title>Home | Colin's Shop</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
@@ -14,14 +14,13 @@
       <nav id="navbar">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-controls">
-          <button id="darkModeToggle" title="Toggle dark mode">🌓</button>
-          <button id="menuToggle" class="menu-toggle">☰</button>
+          <button id="darkModeToggle">🌓</button>
         </div>
       </nav>
     </div>
@@ -37,21 +36,6 @@
           <a href="products.html" class="btn">Shop Now</a>
         </div>
       </div>
-    </section>
-
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We provide curated collections of the best everyday tools, tech, and accessories. Whether you're a student, creator, or casual shopper, we have something for you.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form id="contact-form" action="https://formspree.io/f/mnqkvwja" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
     </section>
   </main>
 
