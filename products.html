@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products | Colin's Shop</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container header-content">
       <h1>Our Products</h1>
-      <nav>
+      <nav id="navbar">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
+          <li id="auth-link"></li>
         </ul>
         <div class="nav-controls">
           <button id="darkModeToggle">🌓</button>
@@ -27,35 +28,47 @@
   </header>
 
   <main class="container">
-<div class="product-controls">
-  <input type="text" id="product-search" placeholder="Search products..." />
-  <select id="category-filter">
-    <option value="">All Categories</option>
-    <option value="tech">Tech</option>
-    <option value="home">Home</option>
-    <option value="accessories">Accessories</option>
-  </select>
-</div>
+    <div class="product-controls">
+      <input type="text" id="product-search" placeholder="Search products..." />
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <option value="tech">Tech</option>
+        <option value="home">Home</option>
+        <option value="accessories">Accessories</option>
+      </select>
+    </div>
 
     <section class="products-grid">
-      <!-- Dynamically populated by script.js -->
+      <!-- Products rendered by script.js -->
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Colin's Shop</p>
   </footer>
-<script>
-  const user = localStorage.getItem('user');
-  if (user) {
-    const nav = document.querySelector('nav');
-    const greeting = document.createElement('p');
-    greeting.textContent = 'Welcome, ' + user;
-    greeting.style.color = 'white';
-    greeting.style.marginLeft = '1em';
-    nav.appendChild(greeting);
-  }
-</script>
 
+  <script>
+    const authLink = document.getElementById('auth-link');
+    const user = localStorage.getItem('user');
+
+    if (authLink) {
+      if (user) {
+        authLink.innerHTML = `
+          <span style="color:white;">Welcome, ${user}</span>
+          <button id="logoutBtn" style="margin-left: 0.5em;">Logout</button>
+        `;
+      } else {
+        authLink.innerHTML = '<a href="login.html">Sign In / Sign Up</a>';
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'logoutBtn') {
+          localStorage.removeItem('user');
+          location.reload();
+        }
+      });
+    }
+  </script>
+  <script async src="https://embed.tawk.to/your-tawk-id/1hxyzabc"></script>
 </body>
 </html>
