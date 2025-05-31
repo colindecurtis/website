@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Colin's Shop</title>
+  <title>Home | Colin's Shop</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container header-content">
-      <h1>Contact Us</h1>
+      <h1>Colin's Shop</h1>
       <nav id="navbar">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -20,21 +20,23 @@
           <li><a href="cart.html">Cart <span id="cart-count">(0)</span></a></li>
         </ul>
         <div class="nav-controls">
-          <button id="darkModeToggle">🌓</button>
+          <button id="darkModeToggle" title="Toggle dark mode">🌓</button>
+          <button id="menuToggle" class="menu-toggle">☰</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section id="contact">
-      <h2>Send Us a Message</h2>
-      <form id="contact-form" action="https://formspree.io/f/mnqkvwja" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+    <section id="hero">
+      <div class="hero-content">
+        <img src="https://via.placeholder.com/400x300" alt="Shop Display">
+        <div>
+          <h2>Welcome to Colin’s Shop</h2>
+          <p>Quality gear and gadgets you’ll actually love.</p>
+          <a href="products.html" class="btn">Shop Now</a>
+        </div>
+      </div>
     </section>
   </main>
 
