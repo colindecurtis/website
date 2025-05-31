@@ -1,7 +1,33 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
 }
-.product {
-  margin-bottom: 20px;
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 1em;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
 }
