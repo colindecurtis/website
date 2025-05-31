@@ -1,12 +1,20 @@
 # Colin's Shop
 
-This is a personal GitHub Pages site for my custom online storefront, built with HTML, CSS, and JavaScript.
+Welcome to my GitHub-hosted website. This site is built using HTML, CSS, and JavaScript, and deployed using GitHub Pages.
 
 ## Live Site
 [https://colindecurtis.github.io/website](https://colindecurtis.github.io/website)
 
+## Pages
+- Home: `index.html`
+- About: `about.html`
+- Contact: `contact.html`
+- Products: `products.html`
+- Cart: `cart.html`
+
 ## Features
-- Mobile-friendly layout
-- Styled navigation and hero section
-- Products page with add-to-cart alerts
-- Clean modern design
+- Fully styled responsive site
+- Dynamic product loading
+- Persistent shopping cart
+- Dark/light mode toggle
+- Contact form integration (Formspree)
