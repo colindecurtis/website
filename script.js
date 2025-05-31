@@ -1,4 +1,3 @@
-// Dark Mode Toggle
 const darkToggle = document.getElementById('darkModeToggle');
 if (darkToggle) {
   darkToggle.addEventListener('click', () => {
@@ -10,7 +9,6 @@ if (localStorage.getItem('darkMode') === 'true') {
   document.body.classList.add('dark');
 }
 
-// Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
@@ -18,18 +16,14 @@ if (menuToggle) {
   });
 }
 
-// CART FUNCTIONS
 const CART_KEY = 'shoppingCart';
-
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
-
 function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   updateCartCount();
 }
-
 function addToCart(productName) {
   const cart = getCart();
   const item = cart.find(p => p.name === productName);
@@ -41,19 +35,16 @@ function addToCart(productName) {
   saveCart(cart);
   alert(`${productName} has been added to your cart!`);
 }
-
 function updateCartCount() {
   const cart = getCart();
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   document.querySelectorAll('#cart-count').forEach(el => el.textContent = `(${count})`);
 }
-
 function renderCart() {
   const cart = getCart();
   const cartList = document.getElementById('cart-list');
   const totalEl = document.getElementById('cart-total');
   if (!cartList || !totalEl) return;
-
   cartList.innerHTML = '';
   let total = 0;
   cart.forEach(item => {
@@ -65,18 +56,15 @@ function renderCart() {
   });
   totalEl.textContent = total.toFixed(2);
 }
-
 function clearCart() {
   localStorage.removeItem(CART_KEY);
   updateCartCount();
   renderCart();
 }
-
 if (window.location.pathname.includes('cart.html')) {
   document.getElementById('clear-cart').addEventListener('click', clearCart);
   renderCart();
 }
-
 if (window.location.pathname.includes('products.html')) {
   fetch('products.json')
     .then(res => res.json())
@@ -97,6 +85,4 @@ if (window.location.pathname.includes('products.html')) {
       });
     });
 }
-
-// Always update cart count
 updateCartCount();
