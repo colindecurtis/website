@@ -86,3 +86,43 @@ if (window.location.pathname.includes('products.html')) {
     });
 }
 updateCartCount();
+// After loading products
+let allProducts = [];
+
+function renderFilteredProducts(products) {
+  const grid = document.querySelector('.products-grid');
+  grid.innerHTML = '';
+  products.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.description}</p>
+      <p class="price">$${p.price.toFixed(2)}</p>
+      <button onclick="addToCart('${p.name}')">Add to Cart</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function filterProducts() {
+  const search = document.getElementById('product-search').value.toLowerCase();
+  const category = document.getElementById('category-filter').value;
+  const filtered = allProducts.filter(p =>
+    p.name.toLowerCase().includes(search) &&
+    (category === '' || p.category === category)
+  );
+  renderFilteredProducts(filtered);
+}
+
+if (window.location.pathname.includes('products.html')) {
+  fetch('products.json')
+    .then(res => res.json())
+    .then(products => {
+      allProducts = products;
+      renderFilteredProducts(products);
+      document.getElementById('product-search').addEventListener('input', filterProducts);
+      document.getElementById('category-filter').addEventListener('change', filterProducts);
+    });
+}
